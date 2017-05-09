@@ -23,6 +23,16 @@
 // }, false);
 // audio.play();
 
+console.log(navigator.userAgent.toLowerCase());
+
+if (navigator.userAgent.toLowerCase().includes("chrome")) {
+	console.log('this is chrome');
+} else {
+	console.log('not chrome');
+	$('#intro').hide();
+	$('#browser-remind').show();
+}
+
 //SERIOUSLY JS VIDEO STUFF
 var seriously, dance, target, dance_chroma;
 
@@ -36,24 +46,43 @@ target.source = dance_chroma;
 
 seriously.go();
 
-//GIF STUFF
-var video = document.getElementById('dance');
+//GIF LOADING & TIMING
+var video, paused, time;
+video = document.getElementById('dance');
+paused = true;
 
-abs_gifs = ['gif/abs1.gif', 'gif/abs2.gif', 'gif/abs3.gif', 'gif/abs4.gif', 'gif/abs5.gif', 'gif/abs6.gif'];
+function start() {
+	video.play()
+	paused = false;
+	$('#intro').hide(); 
+	$('#bg').css({
+        '-webkit-filter':'none',
+        '-moz-filter':'none',
+        '-o-filter':'none',
+        '-ms-filter':'none',
+        'filter':'none',
+    })
+    $("#space-remind").show();
+    setTimeout(function(){
+    	$("#space-remind").fadeOut();
+    }, 3000);
+}
+
+abs_gifs = ['gif/abs1-optim.gif', 'gif/abs2-optim.gif', 'gif/abs3-optim.gif', 'gif/abs4-optim.gif', 'gif/abs5-optim.gif', 'gif/abs6-optim.gif'];
 abs_gifs.name = 'abstract gifs';
-nat_gifs = ['gif/nat1.gif', 'gif/nat2.gif', 'gif/nat3.gif', 'gif/nat4.gif', 'gif/nat5.gif', 'gif/nat6.gif'];
+nat_gifs = ['gif/nat1-optim.gif', 'gif/nat2-optim.gif', 'gif/nat3-optim.gif', 'gif/nat4-optim.gif', 'gif/nat5-optim.gif', 'gif/nat6-optim.gif'];
 nat_gifs.name = 'nature gifs';
-fast_gifs = ['gif/fast1.gif', 'gif/fast2.gif', 'gif/fast3.gif', 'gif/fast4.gif', 'gif/fast5.gif', 'gif/fast6.gif', 'gif/fast7.gif', 'gif/fast8.gif', 'gif/fast9.gif', 'gif/fast10.gif', 'gif/fast11.gif', 'gif/fast12.gif', 'gif/fast13.gif']
+fast_gifs = ['gif/fast1-optim.gif', 'gif/fast2-optim.gif', 'gif/fast3-optim.gif', 'gif/fast4-optim.gif', 'gif/fast5-optim.gif', 'gif/fast6-optim.gif', 'gif/fast7-optim.gif', 'gif/fast8-optim.gif', 'gif/fast9-optim.gif', 'gif/fast10-optim.gif', 'gif/fast11-optim.gif', 'gif/fast12-optim.gif', 'gif/fast13-optim.gif']
 fast_gifs.name = 'fast gifs';
-med_gifs = ['gif/med1.gif', 'gif/med2.gif', 'gif/med3.gif', 'gif/med4.gif', 'gif/med5.gif', 'gif/med6.gif'];
+med_gifs = ['gif/med1-optim.gif', 'gif/med2-optim.gif', 'gif/med3-optim.gif', 'gif/med4-optim.gif', 'gif/med5-optim.gif', 'gif/med6-optim.gif'];
 med_gifs.name = 'medium gifs';
-mild_gifs = ['gif/mild1.gif', 'gif/mild2.gif', 'gif/mild3.gif', 'gif/mild4.gif', 'gif/mild5.gif', 'gif/mild6.gif'];
+mild_gifs = ['gif/mild1-optim.gif', 'gif/mild2-optim.gif', 'gif/mild3-optim.gif', 'gif/mild4-optim.gif', 'gif/mild5-optim.gif', 'gif/mild6-optim.gif'];
 mild_gifs.name = 'mild gifs';
 
 insertGif(nat_gifs);
-var time;
 
-Mousetrap.bind(['space'], function() {
+Mousetrap.bind(['space'], function(e) {
+	e.preventDefault()
 	video.addEventListener("timeupdate", function(){
 		time = this.currentTime;
 	});	
@@ -101,7 +130,6 @@ Mousetrap.bind(['space'], function() {
 	}
 });
 
-var paused = false;
 Mousetrap.bind(['p'], function() {
 	if (paused) {
 		video.play();
@@ -122,10 +150,19 @@ function formatGif(url) {
   return "<img src='" + url + "'>";
 }
 
+var store = 0;
 function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+	var final;
+  	min = Math.ceil(min);
+  	max = Math.floor(max);
+	final = Math.floor(Math.random() * (max - min)) + min;
+
+	if (final == store) {
+		getRandomInt(min, max);
+	} else {
+		store = final;
+		return final;
+	}
 }
 
 //OLD STUFF FOR GETTING GIFS FROM GIPHY
