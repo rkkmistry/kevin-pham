@@ -85,6 +85,24 @@ p {
   margin-bottom: 20px;
 }
 
+#subtext {
+  font-size: 0.8em;
+}
+
+.remind {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+
+.remind h1 {
+  margin-top: 20%;
+  color: white;
+  text-shadow: 3px 3px 5px black;
+}
+
 button {
   font-family: 'Raleway', sans-serif;
   padding: 15px;
@@ -93,6 +111,7 @@ button {
   color: white;
   font-size: 1.2em;
   border-radius: 3px;
+  margin-bottom: 35px;
 }
 
 #start-button {
@@ -108,20 +127,6 @@ button {
   -moz-animation: glowing 1500ms infinite;
   -o-animation: glowing 1500ms infinite;
   animation: glowing 1500ms infinite;
-}
-
-.remind {
-  display: none;
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-  text-align: center;
-}
-
-.remind h1 {
-  margin-top: 20%;
-  color: white;
-  text-shadow: 3px 3px 5px black;
 }
 
 @-webkit-keyframes glowing {
