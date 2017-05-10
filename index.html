@@ -11,7 +11,8 @@
 		<h1>Kevin's Crazy, Insane, Super Fun Dance Adventure</h1>
 		<p>Press the spacebar along with the music to help Kevin travel through time and space!</p>
 		<p>Press 'P' to pause so you can take a screenshot!</p>
-		<button onclick="start()">Let's Dance!</button>
+		<button id='loading-button'>Loading...</button>
+		<button id='start-button' onclick="start()">Let's Dance!</button>
 	</div>
 
 	<div id='space-remind' class='remind'>
@@ -21,53 +22,56 @@
 	<div id='browser-remind' class='remind'>
 		<h1>Sorry, this site only works with the Chrome Web Browser</h1>
 	</div>
-	
+
+	<div id='mobile-remind' class='remind'>
+		<h1>Sorry, this site doesn't work on mobile</h1>
+	</div>
 
 	<div id="bg"><!--gif backgrounds injected here--></div>
 
 	<!--Video & Canvas for seriously.js-->
-	<canvas id="canvas" width="1339" height="857"></canvas>
+	<canvas id="canvas" width="1920" height="1080"></canvas>
 	<video src="dance.webm" id="dance" loop></video>
 
 	<!--gif background collection-->
 	<div id='gif'>
-		<img src='gif/fast1-optim.gif'>
-		<img src='gif/fast2-optim.gif'>
-		<img src='gif/fast3-optim.gif'>
-		<img src='gif/fast4-optim.gif'>
-		<img src='gif/fast5-optim.gif'>
-		<img src='gif/fast6-optim.gif'>
-		<img src='gif/fast7-optim.gif'>
-		<img src='gif/fast8-optim.gif'>
-		<img src='gif/fast9-optim.gif'>
-		<img src='gif/fast10-optim.gif'>
-		<img src='gif/fast11-optim.gif'>
-		<img src='gif/fast12-optim.gif'>
-		<img src='gif/fast13-optim.gif'>
-		<img src='gif/mild1-optim.gif'>
-		<img src='gif/mild2-optim.gif'>
-		<img src='gif/mild3-optim.gif'>
-		<img src='gif/mild4-optim.gif'>
-		<img src='gif/mild5-optim.gif'>
-		<img src='gif/mild6-optim.gif'>
-		<img src='gif/med1-optim.gif'>
-		<img src='gif/med2-optim.gif'>
-		<img src='gif/med3-optim.gif'>
-		<img src='gif/med4-optim.gif'>
-		<img src='gif/med5-optim.gif'>
-		<img src='gif/med6-optim.gif'>
-		<img src='gif/nat1-optim.gif'>
-		<img src='gif/nat2-optim.gif'>
-		<img src='gif/nat3-optim.gif'>
-		<img src='gif/nat4-optim.gif'>
-		<img src='gif/nat5-optim.gif'>
-		<img src='gif/nat6-optim.gif'>
-		<img src='gif/abs1-optim.gif'>
-		<img src='gif/abs2-optim.gif'>
-		<img src='gif/abs3-optim.gif'>
-		<img src='gif/abs4-optim.gif'>
-		<img src='gif/abs5-optim.gif'>
-		<img src='gif/abs6-optim.gif'>
+		<img src='gif/fast1.gif'>
+		<img src='gif/fast2.gif'>
+		<img src='gif/fast3.gif'>
+		<img src='gif/fast4.gif'>
+		<img src='gif/fast5.gif'>
+		<img src='gif/fast6.gif'>
+		<img src='gif/fast7.gif'>
+		<img src='gif/fast8.gif'>
+		<img src='gif/fast9.gif'>
+		<img src='gif/fast10.gif'>
+		<img src='gif/fast11.gif'>
+		<img src='gif/fast12.gif'>
+		<img src='gif/fast13.gif'>
+		<img src='gif/mild1.gif'>
+		<img src='gif/mild2.gif'>
+		<img src='gif/mild3.gif'>
+		<img src='gif/mild4.gif'>
+		<img src='gif/mild5.gif'>
+		<img src='gif/mild6.gif'>
+		<img src='gif/med1.gif'>
+		<img src='gif/med2.gif'>
+		<img src='gif/med3.gif'>
+		<img src='gif/med4.gif'>
+		<img src='gif/med5.gif'>
+		<img src='gif/med6.gif'>
+		<img src='gif/nat1.gif'>
+		<img src='gif/nat2.gif'>
+		<img src='gif/nat3.gif'>
+		<img src='gif/nat4.gif'>
+		<img src='gif/nat5.gif'>
+		<img src='gif/nat6.gif'>
+		<img src='gif/abs1.gif'>
+		<img src='gif/abs2.gif'>
+		<img src='gif/abs3.gif'>
+		<img src='gif/abs4.gif'>
+		<img src='gif/abs5.gif'>
+		<img src='gif/abs6.gif'>
 	</div>
 	 
 	<!--javascript-->
